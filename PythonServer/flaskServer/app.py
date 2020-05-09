@@ -18,7 +18,7 @@ def signin():
     password=request.form(['password'])
 
     if username=='admin' and password=='password':
-        return render_template('sign-ok.html',username=username)
+        return render_template('signin-ok.html',username=username)
     return render_template('form.html',message='账号密码错误',username=username)
 
 if __name__=='__main__':
