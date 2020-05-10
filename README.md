@@ -22,3 +22,14 @@
 //2020/5/9
 
 用epoll写了客户端
+
+
+
+//2020/5/10
+
+1.Python写了基于WCGI的服务器
+
+2.Python用flask直接返回页面
+
+3.Python用flask和 template返回html页面
+
