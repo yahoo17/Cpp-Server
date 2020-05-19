@@ -33,3 +33,11 @@
 
 3.Python用flask和 template返回html页面
 
+
+
+//2020/5/18
+
+1.写了poll的服务器
+
+2.写了poll的客户端
+
