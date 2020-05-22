@@ -26,7 +26,7 @@ void handle_connection(int sockfd);
 
 int count=0;
 //全局变量
-int main(int argc,char * argv)
+int main(int argc,char ** argv)
 {
     int sockfd;
     struct sockaddr_in serveraddr;

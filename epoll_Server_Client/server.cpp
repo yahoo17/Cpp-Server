@@ -106,7 +106,7 @@ void handle_events(int epollfd,struct epoll_event *events,int num,int listenfd,c
             handle_accept(epollfd,listenfd);
         else if(events[i].events&EPOLLIN)
             do_read(epollfd,fd,buf);
-        else if(events[i].events&EPOLLIN)
+        else if(events[i].events&EPOLLOUT)
             do_write(epollfd,fd,buf);
      
         
@@ -141,7 +141,7 @@ void do_read(int epollfd,int fd,char *buf)
         delete_event(epollfd,fd,EPOLLIN);
 
     }
-    else if (nread==0))
+    else if (nread==0)
     {
         /* code */
         fprintf(stderr,"client close\n");
@@ -150,7 +150,7 @@ void do_read(int epollfd,int fd,char *buf)
     }
     else
     {
-        printf(" read message is %s",buf);
+        printf(" read message is %s \n",buf);
         modify_event(epollfd,fd,EPOLLOUT);
     }
     
@@ -160,12 +160,12 @@ void do_read(int epollfd,int fd,char *buf)
 void do_write(int epollfd,int fd,char * buf)
 {
     int nwrite;
-    nwrite=write(fd,buf,strnlen(buf));
+    nwrite=write(fd,buf,strlen(buf));
     if(nwrite==-1)
     {
         perror("write error:");
         close(fd);
-        delete_event(epollfd,fd,EPOLLIN);
+        delete_event(epollfd,fd,EPOLLOUT);
     }
     else
     {

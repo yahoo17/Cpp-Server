@@ -2,16 +2,24 @@
 #include <unistd.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
+#include <string>
 int epollfd;
 void epoll_init();
-int main()
+int listen_bind(string ipaddress,int port,int listenNum)
 {
     int listensocket=socket(AF_INET,SOCK_STREAM,0);
     struct sockaddr_in listenaddr_in;
     listenaddr_in.sin_addr.s_addr=INADDR_ANY;
-    listenaddr_in.sin_port=6666;
-    bind(listensocket,(struct sockaddr *)&listenaddr_in,0);
 
+    listenaddr_in.sin_port=port;
+    bind(listensocket,(struct sockaddr *)&listenaddr_in,0);
+    listen(listen_bind,listenNum);
+    return listensocket;
+}
+int main()
+{
+    
+    int listenfd=listen_bind("127.0.0.1",6666);
     epoll_init();
     epoll_add(listensocket);
 
