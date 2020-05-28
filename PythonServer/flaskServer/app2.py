@@ -5,9 +5,18 @@ from flask import Flask, request, render_template
 
 app = Flask(__name__)
 
+@app.route('/test', methods=['GET', 'POST'])
+def test():
+    if request.method=='GET':
+        if request.
+        return 'you send server a GET request'
+    elif request.method=='POST':
+        return 'you send server a POST request'
+    return "hello world"
+
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    return render_template('home.html')
+    return "hello world"
 
 @app.route('/signin', methods=['GET'])
 def signin_form():
