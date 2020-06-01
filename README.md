@@ -1,5 +1,41 @@
 # Server
- 我的服务器,慢慢写
+ 目录结构
+
+//Server
+
+​	//thread_pool
+
+​		//thread_pool.h 	线程池代码
+
+​		//README.md  	对线程池的介绍
+
+​	//PythonServer  demo玩意
+
+​	//lock
+
+​		//locker.h  实现RAII机制,对互斥锁,信号量,条件变量进行封装
+
+​	//epoll_serverandclient
+
+​		//epollclient.cpp
+
+​		//server.cpp
+
+​	//select_serverandclient
+
+​		//selectclient.cpp
+
+​		//server.cpp
+
+​	//poll_serverandclient
+
+​		//pollclient.cpp
+
+​		//server.cpp
+
+
+
+我的服务器,慢慢写
 
 在linux下面写,但是不想装git,所以一段时间更新一次
 
