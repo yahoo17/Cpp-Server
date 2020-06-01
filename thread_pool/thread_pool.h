@@ -1,5 +1,5 @@
-#ifndef THREAD_POOL
-#define THREAD_POOL
+#ifndef THREAD_POOL_H
+#define THREAD_POOL_H
 #include <exception>
 #include <pthread.h>
 #include <stdio.h>
