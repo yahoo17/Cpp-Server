@@ -1,11 +1,10 @@
 #ifndef LOCKER_H
 #define LOCKER_H
-
 #include <list>
 #include <stdio.h>
 #include <pthread.h>
 #include<semaphore.h>
-template<typename T>
+
 class sem
 {
 public:
