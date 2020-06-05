@@ -5,11 +5,11 @@
 #include<string>
 #include <list>
 #include <iostream>
+#include <mysql/mysql.h>
 using namespace  std;
 class connection_pool
 {
-private:
-	mysql * mysqlarray;
+
 public:
 	MYSQL * GetConnection();
 	bool ReleaseConnection(MYSQL * conn);
@@ -43,7 +43,7 @@ private:
 
 private:
 	string url;
-	string 	Port;
+	int 	Port;
 	string User;
 	string Password;
 	string  DatabaseName;
@@ -55,7 +55,7 @@ class connectionRAII
 {
 public:
 	connectionRAII(MYSQL ** con,connection_pool * connpool);
-	~connectionRAII( )
+	~connectionRAII( );
 private:
 	MYSQL *connRAII ;
 	connection_pool * poolRAII;

@@ -1,7 +1,7 @@
 #include "connection_pool.h"
-using namespace std
+using namespace std;
 
-connection_pool::connection_pool * m_instance=nullptr;
+connection_pool * connection_pool::m_instance=nullptr;
 connection_pool::connection_pool():Maxconn(0),CurConn(0)
 {
 	
@@ -20,7 +20,7 @@ void connection_pool::init(string url,string User,string Password,string DBname,
 	this->Port=port;
 
 	lock.lock();
-	for(int i=0li<Maxconn;i++)
+	for(int i=0;i<Maxconn;i++)
 	{
 		MYSQL * con=NULL;
 		con=mysql_init(con);
@@ -29,7 +29,7 @@ void connection_pool::init(string url,string User,string Password,string DBname,
 			cout<<"Error:"<<mysql_error(con);
 			exit(1);
 		}
-		con=mysql_real_connect(con,url.c_str,User.c_str,Password.c_str,DBname.c_str,Port,NULL,0);
+		con=mysql_real_connect(con,url.c_str(),User.c_str(),Password.c_str(),DBname.c_str(),Port,NULL,0);
 		if(con==NULL)
 		{
 			cout<<"Error"<<mysql_error(con);
@@ -103,5 +103,5 @@ connectionRAII::connectionRAII(MYSQL ** SQL, connection_pool * connpool)
 }
 connectionRAII::~connectionRAII()
 {
-	poolRAII->ReleaseConnection(conRAII);
+	poolRAII->ReleaseConnection(connRAII);
 }
