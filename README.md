@@ -1,6 +1,6 @@
 # Server
  目录结构
-
+# Master下是完整的结构, 其他的是各类demo
 //Server
 
 ​	//thread_pool
